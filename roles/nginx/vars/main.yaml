@@ -1,0 +1,10 @@
+---
+  nu: "{{ groups.nodes | count }}"
+  idx: "{{ groups.nodes.index(inventory_hostname)+1 | int }}"
+  lnx_name: "{{ 'CentOS' if ansible_distribution == 'CentOS'
+               else 'Ubuntu' if ansible_distribution == 'Ubuntu'
+               else 'ETC' }}"
+
+  nginxdir: "{{ '/usr/share/nginx/html' if ansible_distribution == 'CentOS'
+               else '/var/www/html' if ansible_distribution == 'Ubuntu'
+               else 'ETC' }}"

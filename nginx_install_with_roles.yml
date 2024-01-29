@@ -1,0 +1,7 @@
+---
+- name: 각 노드에 nginx 설치하기
+  hosts: nodes
+  become: true
+
+  roles:
+    - role: /home/vagrant/project3/roles/nginx
